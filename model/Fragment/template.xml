@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="3"
+    name="Fragment"
+    description="Creates a Fragment"
+    minApi="7"
+    minBuildApi="8">
+
+    <category value="AKT" />
+
+	
+	<parameter
+        id="descName"
+        name="Desc Name"
+        type="string"
+        constraints="class|nonempty|unique"
+        default="描述"
+        help="描述的名字，备注" />
+	
+
+    <parameter
+        id="fragmentName"
+        name="Fragment Name"
+        type="string"
+        constraints="class|nonempty|unique"
+        default="Blank"
+		suggest="Blank"
+        help="Fragment的名字，不要加扩展，自己添加" />
+
+
+    <parameter
+        id="layoutName"
+        name="Fragment Layout Name"
+        type="string"
+        constraints="layout|nonempty|unique"
+        default="fragment_blank"
+        visibility="true"
+        suggest="fragment_${classToResource(fragmentName)}"
+        help="The name of the layout to create" />
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
